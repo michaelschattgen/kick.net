@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kick.Api", "Kick.Api\Kick.Api.csproj", "{E4067DB1-1232-4753-9120-897ED7340CE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kick.Example", "Kick.Example\Kick.Example.csproj", "{BF596F73-A50F-4E1E-B153-5381AC8B233D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{E4067DB1-1232-4753-9120-897ED7340CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4067DB1-1232-4753-9120-897ED7340CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4067DB1-1232-4753-9120-897ED7340CE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF596F73-A50F-4E1E-B153-5381AC8B233D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF596F73-A50F-4E1E-B153-5381AC8B233D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF596F73-A50F-4E1E-B153-5381AC8B233D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF596F73-A50F-4E1E-B153-5381AC8B233D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
