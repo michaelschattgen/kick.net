@@ -2,11 +2,12 @@
 using Kick.Api.Clients.Interfaces;
 
 namespace Kick.Api;
-public class KickClient
+
+public class KickClient : IKickClient
 {
-    public KickClient()
+    public KickClient(HttpClient httpClient)
     {
-        Channels = new ChannelsClient();
+        Channels = new ChannelsClient(httpClient);
     }
 
     public IChannelsClient Channels { get; }
