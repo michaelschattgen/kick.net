@@ -8,9 +8,9 @@ public class ChannelsClient : ApiClient, IChannelsClient
     {
     }
 
-    public async Task<string> Get(string channelName, CancellationToken cancel = default)
+    public async Task<Channel> Get(string channelName, CancellationToken cancel = default)
     {
         var channel = await this.GetAsync<Channel>(Endpoints.Channels + "/" + channelName, cancel);
-        return channel.Slug ?? "";
+        return channel!;
     }
 }

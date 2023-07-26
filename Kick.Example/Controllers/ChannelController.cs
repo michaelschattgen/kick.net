@@ -18,8 +18,9 @@ public class ChannelController : ControllerBase
     }
 
     [HttpGet(Name = "GetChannel")]
-    public async Task<string> GetName(string channelName)
+    public async Task<Channel> GetName(string channelName)
     {
-        return await _kickClient.Channels.Get(channelName);
+        var channel = await _kickClient.Channels.Get(channelName);
+        return channel;
     }
 }

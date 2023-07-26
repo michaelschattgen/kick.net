@@ -1,5 +1,6 @@
 using System.Text.Json;
-using Kick.Api.Clients.Interfaces;
+using Kick.Api.Exceptions;
+using Kick.Api.Utils;
 
 namespace Kick.Api.Clients;
 
@@ -12,14 +13,35 @@ public abstract class ApiClient
         _httpClient = httpClient;
     }
 
-    public async Task<T> GetAsync<T>(string endpoint, CancellationToken cancellationToken)
+    public async Task<T?> GetAsync<T>(string endpoint, CancellationToken cancellationToken)
     {
         var response = await this._httpClient.GetAsync(endpoint, cancellationToken);
-        response.EnsureSuccessStatusCode();
+        if (!response.IsSuccessStatusCode)
+        {
+            HandleRequestFailure<T>(response);
+        }
 
         string content = await response.Content.ReadAsStringAsync();
-        T result = JsonSerializer.Deserialize<T>(content);
+        if (!string.IsNullOrEmpty(content))
+        {
+            return JsonSerializer.Deserialize<T>(content);
+        }
 
-        return result;
+        return default(T);
+    }
+
+    protected void HandleRequestFailure<T>(HttpResponseMessage response)
+    {
+        try
+        {
+            if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                throw new KickException($"{TypeUtils.GetFriendlyName<T>()} was not found.", response.StatusCode);
+            }
+        }
+        finally
+        {
+            response.Dispose();
+        }
     }
 }

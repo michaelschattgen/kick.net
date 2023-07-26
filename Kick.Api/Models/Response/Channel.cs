@@ -1,5 +1,7 @@
 using System.Text.Json.Serialization;
+using Kick.Api.Attributes;
 
+[FriendlyName("Channel/User")]
 public class Channel
 {
     [JsonPropertyName("id")]
