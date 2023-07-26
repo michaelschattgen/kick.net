@@ -9,8 +9,10 @@ public class KickClient : IKickClient
     {
         Channels = new ChannelsClient(httpClient);
         Users = new UsersClient(httpClient);
+        Livestream = new LivestreamClient(httpClient);
     }
 
     public IChannelsClient Channels { get; }
     public IUsersClient Users { get; }
+    public ILivestreamClient Livestream { get; }
 }

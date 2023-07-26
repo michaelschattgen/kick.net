@@ -1,5 +1,6 @@
 using System.Text.Json;
 using Kick.Api.Exceptions;
+using Kick.Api.Models.Response;
 using Kick.Api.Utils;
 
 namespace Kick.Api.Clients;
@@ -25,6 +26,11 @@ public abstract class ApiClient
 
         if (!string.IsNullOrEmpty(content))
         {
+            if (endpoint.StartsWith("v2"))
+            {
+                return JsonSerializer.Deserialize<V2Response<T>>(content).Data;
+            }
+
             return JsonSerializer.Deserialize<T>(content);
         }
 

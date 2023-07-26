@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.Configure<AppSettings>(_configuration.GetSection("AppSettings"));
 builder.Services.AddKickApiClient(httpClient =>
 {
-    httpClient.BaseAddress = Endpoints.V1;
+    httpClient.BaseAddress = Endpoints.KickBaseUrl;
 }, _configuration.GetValue<bool>("UseFlareSolverr"));
 
 var app = builder.Build();

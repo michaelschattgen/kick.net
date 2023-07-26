@@ -8,7 +8,7 @@ public static class KickClientFactory
     {
         var httpClient = new HttpClient(httpMessageHandler)
         {
-            BaseAddress = Endpoints.V1
+            BaseAddress = Endpoints.KickBaseUrl
         };
 
         ConfigureHttpClient(httpClient);
