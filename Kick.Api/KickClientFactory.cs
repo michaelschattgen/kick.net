@@ -4,9 +4,9 @@ namespace Kick.Api.Clients;
 
 public static class KickClientFactory
 {
-    public static IKickClient Create()
+    public static IKickClient Create(HttpMessageHandler httpMessageHandler)
     {
-        var httpClient = new HttpClient()
+        var httpClient = new HttpClient(httpMessageHandler)
         {
             BaseAddress = Endpoints.V1
         };
