@@ -12,7 +12,7 @@ public class User
     public bool AgreedToTerms { get; set; }
 
     [JsonPropertyName("email_verified_at")]
-    public DateTime EmailVerifiedAt { get; set; }
+    public DateTime? EmailVerifiedAt { get; set; }
 
     [JsonPropertyName("bio")]
     public string Bio { get; set; }

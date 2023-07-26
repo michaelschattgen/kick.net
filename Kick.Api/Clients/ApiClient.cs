@@ -22,6 +22,7 @@ public abstract class ApiClient
         }
 
         string content = await response.Content.ReadAsStringAsync();
+
         if (!string.IsNullOrEmpty(content))
         {
             return JsonSerializer.Deserialize<T>(content);

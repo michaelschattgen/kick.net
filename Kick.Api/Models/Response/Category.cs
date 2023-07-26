@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Kick.Api.Models.Response;
 
 public class Category
 {
@@ -13,4 +14,10 @@ public class Category
 
     [JsonPropertyName("icon")]
     public string Icon { get; set; }
+
+    [JsonPropertyName("tags")]
+    public List<string> Tags { get; set; }
+
+    [JsonPropertyName("parent_category")]
+    public ParentCategory ParentCategory { get; set; }
 }
